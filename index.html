@@ -1173,9 +1173,15 @@ function printForm() {
 <body>
 
 <div class="form-header">
-  <div>
-    <div class="brand-name">Gabriela Barros</div>
-    <div class="brand-tag">assessoria e gestão de marketing</div>
+  <div style="display:flex;align-items:center;gap:0.85rem;">
+    <svg width="48" height="48" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M62 22 C60 10 50 4 38 5 C20 8 10 24 13 42 C16 59 31 71 49 68 C61 65 68 55 65 43 C62 33 53 29 45 32 C39 35 37 41 40 47" stroke="#6B5B7B" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <circle cx="42" cy="53" r="5.5" fill="#6B5B7B"/>
+    </svg>
+    <div>
+      <div class="brand-name">Gabriela Barros</div>
+      <div class="brand-tag">assessoria e gestão de marketing</div>
+    </div>
   </div>
   <div class="doc-title">
     <h1>Formulário de Levantamento de Dados</h1>
@@ -1294,11 +1300,17 @@ function printForm() {
       </tr>
     </thead>
     <tbody>
-      ${[1,2,3,4,5,6].map(() => `<tr>
-        <td><input class="write-line" type="text" placeholder="Ex: Google Ads"></td>
-        <td><input class="write-line" type="text" placeholder="Ex: Search · Marca"></td>
-        <td><input class="write-line" type="text" placeholder="R$"></td>
-        <td><input class="write-line" type="text" placeholder="R$"></td>
+      <tr style="background:#F0EBF8;">
+        <td><input class="write-line" type="text" value="Google Ads" style="color:#6B5B7B;font-style:italic;"></td>
+        <td><input class="write-line" type="text" value="Search · Marca" style="color:#6B5B7B;font-style:italic;"></td>
+        <td><input class="write-line" type="text" value="R$ 1.500,00" style="color:#6B5B7B;font-style:italic;"></td>
+        <td><input class="write-line" type="text" value="R$ 6.200,00" style="color:#6B5B7B;font-style:italic;"></td>
+      </tr>
+      ${[1,2,3,4,5].map(() => `<tr>
+        <td><input class="write-line" type="text"></td>
+        <td><input class="write-line" type="text"></td>
+        <td><input class="write-line" type="text"></td>
+        <td><input class="write-line" type="text"></td>
       </tr>`).join('')}
     </tbody>
   </table>
