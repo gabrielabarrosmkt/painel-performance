@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriela Barros · Assessoria e Gestão de Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple-deep:   #2E2440;
+    --purple-mid:    #3D3054;
+    --purple-base:   #4E3F6A;
+    --purple-soft:   #6B5B7B;
+    --purple-light:  #8A7A9A;
+    --silver:        #C8C0D0;
+    --silver-dim:    #9A90A8;
+    --silver-faint:  rgba(200,192,208,0.12);
+    --silver-border: rgba(200,192,208,0.22);
+    --white:         #F2EFF6;
+    --positive:      #7AB898;
+    --negative:      #C47A7A;
+    --text:          #EDE9F3;
+    --text-muted:    #9A90A8;
+    --text-dim:      #6A6078;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--purple-deep);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--purple-mid);
+    border-bottom: 1px solid var(--silver-border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-lockup { display: flex; align-items: center; gap: 0.9rem; }
+
+  .logo-mark { width: 38px; height: 38px; flex-shrink: 0; }
+
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--silver);
+    letter-spacing: 0.04em;
+  }
+
+  .logo-tagline {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.59rem;
+    font-weight: 300;
+    color: var(--silver-dim);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+
+  .client-label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .client-input {
+    background: var(--purple-base);
+    border: 1px solid var(--silver-border);
+    color: var(--text);
+    padding: 0.4rem 0.85rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    min-width: 180px;
+    transition: border-color 0.2s;
+  }
+  .client-input:focus { outline: none; border-color: var(--silver); }
+
+  .period-input {
+    background: var(--purple-base);
+    border: 1px solid var(--silver-border);
+    color: var(--text);
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .period-input:focus { outline: none; border-color: var(--silver); }
+
+  .hdr-btn {
+    background: var(--purple-base);
+    border: 1px solid var(--silver-border);
+    color: var(--silver);
+    padding: 0.38rem 0.85rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .hdr-btn:hover { background: var(--purple-soft); border-color: var(--silver); color: var(--white); }
+
+  /* GUIDE TAB */
+  .guide-section { max-width: 860px; }
+  .guide-block { background: var(--purple-mid); border: 1px solid var(--silver-border); border-radius: 8px; padding: 1.75rem 2rem; margin-bottom: 1.25rem; }
+  .guide-block-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--silver); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--silver-border); letter-spacing: 0.03em; }
+  .guide-block-title span { font-size: 0.95rem; font-style: italic; color: var(--text-muted); margin-left: 0.5rem; }
+  .guide-step { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+  .guide-step:last-child { margin-bottom: 0; }
+  .guide-num { width: 26px; height: 26px; min-width: 26px; background: var(--purple-base); border: 1px solid var(--silver-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--silver); margin-top: 1px; flex-shrink: 0; }
+  .guide-step-body { flex: 1; }
+  .guide-step-title { font-size: 0.82rem; font-weight: 400; color: var(--white); margin-bottom: 0.25rem; }
+  .guide-step-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; }
+  .guide-formula { background: var(--purple-base); border-left: 3px solid var(--silver); padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin: 0.75rem 0; font-size: 0.82rem; color: var(--silver); letter-spacing: 0.03em; font-style: italic; }
+  .guide-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.78rem; }
+  .guide-table th { text-align: left; padding: 0.5rem 0.75rem; font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); border-bottom: 1px solid var(--silver-border); font-weight: 400; }
+  .guide-table td { padding: 0.55rem 0.75rem; color: var(--text-muted); border-bottom: 1px solid rgba(200,192,208,0.06); line-height: 1.5; vertical-align: top; }
+  .guide-table td:first-child { color: var(--silver); font-weight: 400; white-space: nowrap; }
+  .guide-table tbody tr:last-child td { border-bottom: none; }
+  .guide-tag { display: inline-block; padding: 0.12rem 0.5rem; border-radius: 3px; font-size: 0.68rem; margin-right: 0.3rem; letter-spacing: 0.05em; }
+  .tag-green  { background: rgba(122,184,152,0.15); color: var(--positive); }
+  .tag-silver { background: rgba(200,192,208,0.12); color: var(--silver); }
+  .tag-red    { background: rgba(196,122,122,0.15); color: var(--negative); }
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--purple-base); border: 1px solid var(--silver-border); color: var(--silver); padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 0.8rem; letter-spacing: 0.04em; z-index: 999; opacity: 0; transform: translateY(10px); transition: all 0.3s; pointer-events: none; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  .tabs {
+    background: var(--purple-mid);
+    border-bottom: 1px solid var(--silver-border);
+    display: flex;
+    padding: 0 2rem;
+  }
+
+  .tab {
+    padding: 1rem 1.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--silver); }
+  .tab.active { color: var(--silver); border-bottom-color: var(--silver); }
+
+  /* MAIN */
+  .main { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header { margin-bottom: 2rem; }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.1rem;
+    font-weight: 300;
+    color: var(--silver);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .section-title em { font-style: italic; color: var(--white); }
+
+  .section-subtitle {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* METRIC CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .metric-card {
+    background: var(--purple-mid);
+    border: 1px solid var(--silver-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--silver), transparent);
+    opacity: 0.4;
+  }
+  .metric-card:hover { border-color: var(--silver-dim); transform: translateY(-1px); }
+
+  .metric-label {
+    font-size: 0.67rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+
+  .metric-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--silver);
+    line-height: 1;
+  }
+  .metric-value.highlight { color: var(--white); }
+  .metric-value.positive  { color: var(--positive); }
+  .metric-value.negative  { color: var(--negative); }
+
+  .metric-sub { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.4rem; font-weight: 300; }
+
+  /* PANEL */
+  .panel {
+    background: var(--purple-mid);
+    border: 1px solid var(--silver-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .panel-header {
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid var(--silver-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .panel-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--silver); font-weight: 400; }
+  .panel-hint  { font-size: 0.68rem; color: var(--text-dim); font-style: italic; }
+
+  .panel-body { padding: 1.5rem; }
+
+  /* TWO COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* FORM TABLE */
+  .form-table { width: 100%; border-collapse: collapse; }
+  .form-table tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .form-table tr:last-child { border-bottom: none; }
+  .form-table td { padding: 0.65rem 0.4rem; vertical-align: middle; }
+
+  .row-label  { color: var(--text-muted); font-size: 0.8rem; font-weight: 300; width: 55%; }
+  .row-source { color: var(--text-dim); font-size: 0.67rem; font-style: italic; text-align: right; width: 22%; }
+  .row-value  { width: 23%; text-align: right; }
+
+  .calc-row { background: rgba(200,192,208,0.05); }
+  .calc-row .row-label { color: var(--silver); font-weight: 400; }
+
+  .calc-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--silver);
+    white-space: nowrap;
+  }
+
+  /* INPUTS */
+  .field-input {
+    background: var(--purple-base);
+    border: 1px solid rgba(200,192,208,0.18);
+    color: var(--text);
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    text-align: right;
+    width: 130px;
+    transition: border-color 0.2s;
+  }
+  .field-input:focus { outline: none; border-color: var(--silver); }
+
+  /* CAMPAIGN TABLE */
+  .campaign-table { width: 100%; border-collapse: collapse; min-width: 680px; }
+
+  .campaign-table th {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--silver);
+    padding: 0.7rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--silver-border);
+    font-weight: 400;
+    background: rgba(0,0,0,0.08);
+  }
+  .campaign-table th:nth-child(n+3):nth-child(-n+5) { text-align: right; }
+
+  .campaign-table td {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.82rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: middle;
+  }
+  .campaign-table td:nth-child(n+3):nth-child(-n+5) { text-align: right; }
+  .campaign-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+  .campaign-table input {
+    background: var(--purple-base);
+    border: 1px solid rgba(200,192,208,0.14);
+    color: var(--text);
+    padding: 0.28rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: right;
+    width: 120px;
+    transition: border-color 0.2s;
+  }
+  .campaign-table input.tl { text-align: left; width: 130px; }
+  .campaign-table input:focus { outline: none; border-color: var(--silver); }
+
+  /* ROAS BADGE */
+  .roas-badge {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 3px;
+    font-size: 0.67rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .b-esc { background: rgba(122,184,152,0.15); color: var(--positive); }
+  .b-ot  { background: rgba(200,192,208,0.12); color: var(--silver); }
+  .b-red { background: rgba(196,122,122,0.15); color: var(--negative); }
+
+  /* BUTTONS */
+  .btn-add {
+    background: none;
+    border: 1px dashed var(--silver-border);
+    color: var(--text-dim);
+    padding: 0.5rem 1.1rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-add:hover { border-color: var(--silver); color: var(--silver); }
+
+  .btn-del {
+    background: none; border: none; color: var(--text-dim);
+    cursor: pointer; padding: 0.2rem 0.4rem; font-size: 1rem; line-height: 1; transition: color 0.15s;
+  }
+  .btn-del:hover { color: var(--negative); }
+
+  /* CANAL CARDS */
+  .canal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+    gap: 1rem;
+  }
+
+  .canal-card {
+    background: var(--purple-base);
+    border: 1px solid var(--silver-border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    transition: border-color 0.2s;
+  }
+  .canal-card:hover { border-color: var(--silver-dim); }
+
+  .canal-name { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 400; }
+  .canal-roas { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 500; line-height: 1; }
+  .canal-detail { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.35rem; font-weight: 300; }
+
+  /* ROI BIG CARD */
+  .roi-big-card {
+    background: linear-gradient(135deg, var(--purple-base), var(--purple-mid));
+    border: 1px solid var(--silver-border);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .roi-big-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); font-weight: 400; }
+  .roi-big-value { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 500; color: var(--silver); line-height: 1; }
+  .roi-big-formula { font-size: 0.68rem; color: var(--text-dim); font-style: italic; margin-top: 0.25rem; }
+  .roi-big-verdict { font-size: 0.78rem; margin-top: 0.5rem; font-weight: 400; letter-spacing: 0.04em; }
+
+  /* EXEC GRID */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 900px) { .exec-grid { grid-template-columns: 1fr; } }
+
+  /* VERDICT */
+  .verdict-panel {
+    background: linear-gradient(135deg, rgba(200,192,208,0.1), rgba(200,192,208,0.02));
+    border: 1px solid var(--silver-border);
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .verdict-panel::after {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(200,192,208,0.08), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .verdict-eyebrow { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--silver-dim); margin-bottom: 0.6rem; font-weight: 400; }
+  .verdict-text    { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 300; color: var(--white); line-height: 1.35; font-style: italic; }
+  .verdict-detail  { font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.7; font-weight: 300; max-width: 680px; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: linear-gradient(90deg, var(--silver-dim), transparent); margin: 1.5rem 0; opacity: 0.25; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--silver-border);
+    margin-top: 3rem;
+    font-weight: 300;
+  }
+  .footer strong { color: var(--silver-dim); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section.active > * { animation: fadeUp 0.3s ease both; }
+  .section.active > *:nth-child(2) { animation-delay: 0.06s; }
+  .section.active > *:nth-child(3) { animation-delay: 0.12s; }
+  .section.active > *:nth-child(4) { animation-delay: 0.18s; }
+
+  /* PRINT */
+  @media print {
+    .header { position: static; }
+    .tabs, .btn-add, .btn-del, .header-right { display: none !important; }
+    .section { display: block !important; margin-bottom: 3rem; page-break-after: always; }
+    body { background: white; color: #222; }
+    .panel, .metric-card, .canal-card, .verdict-panel { border-color: #ddd !important; background: white !important; }
+    .section-title, .metric-value, .canal-roas, .verdict-text, .calc-value, .roi-big-value { color: #111 !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-lockup">
+    <svg class="logo-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M62 22 C60 10 50 4 38 5 C20 8 10 24 13 42 C16 59 31 71 49 68 C61 65 68 55 65 43 C62 33 53 29 45 32 C39 35 37 41 40 47" stroke="#C8C0D0" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <circle cx="42" cy="53" r="5.5" fill="#C8C0D0"/>
+    </svg>
+    <div class="logo-text">
+      <div class="logo-name">Gabriela Barros</div>
+      <div class="logo-tagline">assessoria e gestão de marketing</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="client-label">Cliente</span>
+    <input class="client-input" id="clientName" type="text" placeholder="Nome do cliente" oninput="updateClient()">
+    <input class="period-input" id="periodInput" type="month">
+    <div style="display:flex;gap:0.5rem;margin-left:0.5rem;">
+      <button class="hdr-btn" onclick="saveData()" title="Salvar dados do cliente">💾 Salvar</button>
+      <label class="hdr-btn" title="Carregar dados salvos" style="cursor:pointer;">
+        📂 Carregar<input type="file" accept=".json" onchange="loadData(event)" style="display:none;">
+      </label>
+    </div>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabs">
+  <div class="tab active" onclick="switchTab('roi')">DRE · ROI de Marketing</div>
+  <div class="tab"        onclick="switchTab('roas')">ROAS por Campanha</div>
+  <div class="tab"        onclick="switchTab('exec')">Painel Executivo</div>
+  <div class="tab"        onclick="switchTab('guide')" style="margin-left:auto;">❓ Como Usar</div>
+</nav>
+<div class="toast" id="toast"></div>
+
+<main class="main">
+
+  <!-- ═══ TAB 1 · DRE / ROI ═══ -->
+  <section id="tab-roi" class="section active">
+    <div class="section-header">
+      <div class="section-title">DRE Gerencial · <em>ROI de Marketing</em></div>
+      <div class="section-subtitle">Margem incremental gerada pelo investimento em marketing · Método GB</div>
+    </div>
+
+    <div class="two-col">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">DRE Operacional</span>
+          <span class="panel-hint">Preencha os valores do período</span>
+        </div>
+        <div class="panel-body">
+          <table class="form-table">
+            <tr><td class="row-label">Receita Bruta</td><td class="row-value"><input class="field-input" type="number" id="rec-bruta" placeholder="0" oninput="calcRoi()"></td><td class="row-source">ERP · NF-e</td></tr>
+            <tr><td class="row-label">(–) Impostos sobre faturamento</td><td class="row-value"><input class="field-input" type="number" id="impostos" placeholder="0" oninput="calcRoi()"></td><td class="row-source">Contabilidade</td></tr>
+            <tr><td class="row-label">(–) Devoluções e descontos</td><td class="row-value"><input class="field-input" type="number" id="devolucoes" placeholder="0" oninput="calcRoi()"></td><td class="row-source">Rel. Comercial</td></tr>
+            <tr class="calc-row"><td class="row-label">= Receita Líquida</td><td class="row-value"><span class="calc-value" id="rec-liq">—</span></td><td class="row-source">Calculado</td></tr>
+            <tr><td class="row-label">(–) Custos Variáveis Operacionais</td><td class="row-value"><input class="field-input" type="number" id="custos-var" placeholder="0" oninput="calcRoi()"></td><td class="row-source">ERP · CMV</td></tr>
+            <tr class="calc-row"><td class="row-label">= Margem de Contribuição Operacional</td><td class="row-value"><span class="calc-value" id="margem-contrib">—</span></td><td class="row-source">Calculado</td></tr>
+            <tr class="calc-row"><td class="row-label">Margem de Contribuição (%)</td><td class="row-value"><span class="calc-value" id="margem-pct">—</span></td><td class="row-source">Calculado</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Investimento em Marketing</span>
+          <span class="panel-hint">Totalidade do período analisado</span>
+        </div>
+        <div class="panel-body">
+          <table class="form-table">
+            <tr><td class="row-label">Mídia Paga (Google, Meta, etc.)</td><td class="row-value"><input class="field-input" type="number" id="inv-midia" placeholder="0" oninput="calcRoi()"></td><td class="row-source">Plataformas</td></tr>
+            <tr><td class="row-label">Produção e Conteúdo</td><td class="row-value"><input class="field-input" type="number" id="inv-prod" placeholder="0" oninput="calcRoi()"></td><td class="row-source">Contratos</td></tr>
+            <tr><td class="row-label">Equipe Interna proporcional</td><td class="row-value"><input class="field-input" type="number" id="inv-equipe" placeholder="0" oninput="calcRoi()"></td><td class="row-source">RH · Folha</td></tr>
+            <tr><td class="row-label">Ferramentas (CRM, automação, BI)</td><td class="row-value"><input class="field-input" type="number" id="inv-tools" placeholder="0" oninput="calcRoi()"></td><td class="row-source">Assinaturas</td></tr>
+            <tr class="calc-row"><td class="row-label">= Investimento Total em Marketing</td><td class="row-value"><span class="calc-value" id="inv-total">—</span></td><td class="row-source">Calculado</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Cálculo de ROI Incremental</span>
+        <span class="panel-hint">ROI = (Margem Incr. − Inv. Marketing) ÷ Inv. Marketing</span>
+      </div>
+      <div class="panel-body">
+        <div class="two-col" style="margin-bottom:0; align-items:stretch;">
+          <table class="form-table">
+            <tr><td class="row-label">Receita Base (média histórica 3–6 meses)</td><td class="row-value"><input class="field-input" type="number" id="rec-base" placeholder="0" oninput="calcRoi()"></td><td class="row-source">ERP</td></tr>
+            <tr class="calc-row"><td class="row-label">Receita Atual (Receita Líquida do período)</td><td class="row-value"><span class="calc-value" id="rec-atual">—</span></td><td class="row-source">Da DRE</td></tr>
+            <tr class="calc-row"><td class="row-label">Receita Incremental</td><td class="row-value"><span class="calc-value" id="rec-incr">—</span></td><td class="row-source">Calculado</td></tr>
+            <tr class="calc-row"><td class="row-label">Margem Operacional (%)</td><td class="row-value"><span class="calc-value" id="marg-op-pct">—</span></td><td class="row-source">Da DRE</td></tr>
+            <tr class="calc-row"><td class="row-label">Margem Incremental (R$)</td><td class="row-value"><span class="calc-value" id="marg-incr">—</span></td><td class="row-source">Calculado</td></tr>
+            <tr class="calc-row"><td class="row-label">Investimento Total em Marketing</td><td class="row-value"><span class="calc-value" id="inv-total-2">—</span></td><td class="row-source">Da aba inv.</td></tr>
+          </table>
+          <div class="roi-big-card">
+            <div class="roi-big-label">R.O.I. Incremental de Marketing</div>
+            <div class="roi-big-value" id="roi-final">—</div>
+            <div class="roi-big-formula">(Margem Incr. − Inv.) ÷ Inv.</div>
+            <div class="roi-big-verdict" id="roi-verdict"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TAB 2 · ROAS ═══ -->
+  <section id="tab-roas" class="section">
+    <div class="section-header">
+      <div class="section-title">ROAS <em>Operacional</em></div>
+      <div class="section-subtitle">Retorno sobre investimento em mídia paga · por campanha e canal</div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="metric-card">
+        <div class="metric-label">Investimento Total em Mídia</div>
+        <div class="metric-value highlight" id="roas-inv-total">—</div>
+        <div class="metric-sub">Soma de todas as campanhas</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Receita Atribuída Total</div>
+        <div class="metric-value" id="roas-rec-total">—</div>
+        <div class="metric-sub">Via rastreamento · UTM</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">ROAS Consolidado</div>
+        <div class="metric-value highlight" id="roas-geral">—</div>
+        <div class="metric-sub">Receita ÷ Investimento</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">ROAS Mínimo (referência)</div>
+        <div class="metric-value" id="roas-min-display">—</div>
+        <div class="metric-sub">
+          <input class="field-input" type="number" id="roas-min" placeholder="ex: 3,0" min="0" step="0.1"
+            oninput="calcRoas()" style="margin-top:6px; max-width:110px; font-size:0.78rem;">
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Campanhas · Entrada de Dados</span>
+        <span class="panel-hint">Apenas tráfego pago rastreável via UTM</span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="campaign-table">
+          <thead>
+            <tr>
+              <th>Canal</th><th>Campanha</th><th>Investimento (R$)</th>
+              <th>Receita Atribuída (R$)</th><th>ROAS</th><th>Status</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="campaign-body"></tbody>
+        </table>
+        <div style="padding:1rem 1.5rem;">
+          <button class="btn-add" onclick="addCampaignRow()">+ Adicionar campanha</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header"><span class="panel-title">Resumo por Canal</span></div>
+      <div class="panel-body">
+        <div class="canal-grid" id="canal-grid">
+          <div style="color:var(--text-dim);font-size:0.8rem;font-style:italic;">Adicione campanhas acima para ver o resumo por canal.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TAB 3 · EXECUTIVO ═══ -->
+  <section id="tab-exec" class="section">
+    <div class="section-header">
+      <div class="section-title">Painel <em>Executivo</em></div>
+      <div class="section-subtitle" id="exec-subtitle">Visão consolidada · Para apresentação ao cliente</div>
+    </div>
+
+    <div class="exec-grid">
+      <div class="metric-card"><div class="metric-label">ROI de Marketing</div><div class="metric-value highlight" id="exec-roi">—</div><div class="metric-sub">Retorno incremental real</div></div>
+      <div class="metric-card"><div class="metric-label">ROAS Consolidado</div><div class="metric-value highlight" id="exec-roas">—</div><div class="metric-sub">Retorno sobre mídia paga</div></div>
+      <div class="metric-card"><div class="metric-label">Margem de Contribuição</div><div class="metric-value" id="exec-margem">—</div><div class="metric-sub">Operacional do período</div></div>
+      <div class="metric-card"><div class="metric-label">Investimento Total em Mkt</div><div class="metric-value" id="exec-inv">—</div><div class="metric-sub">Mídia + conteúdo + equipe + ferramentas</div></div>
+      <div class="metric-card"><div class="metric-label">Receita Atribuída (ROAS)</div><div class="metric-value" id="exec-rec-atrib">—</div><div class="metric-sub">Via rastreamento</div></div>
+      <div class="metric-card"><div class="metric-label">Receita Incremental</div><div class="metric-value" id="exec-rec-incr">—</div><div class="metric-sub">Acima da base histórica</div></div>
+    </div>
+
+    <div class="verdict-panel">
+      <div class="verdict-eyebrow">Diagnóstico · Gabriela Barros · Assessoria e Gestão de Marketing</div>
+      <div class="verdict-text" id="verdict-text">Preencha os dados nas abas DRE e ROAS para gerar o diagnóstico consolidado.</div>
+      <div class="verdict-detail" id="verdict-detail"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="panel">
+      <div class="panel-header"><span class="panel-title">Performance por Canal</span></div>
+      <div class="panel-body">
+        <div class="canal-grid" id="exec-canal-grid">
+          <div style="color:var(--text-dim);font-size:0.8rem;font-style:italic;">Sem dados de campanha inseridos.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem; display:flex; justify-content:flex-end;">
+      <button class="btn-add" onclick="window.print()"
+        style="border-style:solid; color:var(--silver); border-color:var(--silver-border); padding:0.6rem 1.4rem;">
+        ⬇ &nbsp;Exportar · Imprimir PDF
+      </button>
+    </div>
+  </section>
+  <!-- ═══ TAB 4 · COMO USAR ═══ -->
+  <section id="tab-guide" class="section guide-section">
+    <div class="section-header">
+      <div class="section-title">Como <em>Utilizar</em></div>
+      <div class="section-subtitle">Guia operacional e metodológico · Instrumento GB Marketing</div>
+    </div>
+
+    <!-- BLOCO 1: Fluxo de trabalho -->
+    <div class="guide-block">
+      <div class="guide-block-title">Fluxo de Trabalho <span>passo a passo</span></div>
+      <div class="guide-step">
+        <div class="guide-num">1</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Identifique o cliente e o período</div>
+          <div class="guide-step-desc">No cabeçalho superior, preencha o nome do cliente e selecione o mês/ano de referência. Esses dados identificarão o arquivo salvo.</div>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">2</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Preencha a aba DRE · ROI de Marketing</div>
+          <div class="guide-step-desc">Insira os valores financeiros do período: receita bruta, impostos, devoluções, custos variáveis, receita base histórica e todos os itens de investimento em marketing. Os campos calculados são preenchidos automaticamente.</div>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">3</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Preencha a aba ROAS por Campanha</div>
+          <div class="guide-step-desc">Cadastre cada campanha de mídia paga com seu respectivo canal, investimento e receita atribuída (rastreável via UTM). Defina o ROAS mínimo aceitável para que a classificação Escalar/Otimizar/Reduzir seja aplicada automaticamente.</div>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">4</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Consulte o Painel Executivo</div>
+          <div class="guide-step-desc">Acesse a aba Painel Executivo para ver a visão consolidada com todos os indicadores e o diagnóstico narrativo gerado automaticamente. Este é o material para apresentar ao cliente.</div>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">5</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Salve o arquivo do cliente</div>
+          <div class="guide-step-desc">Clique em <strong style="color:var(--silver);">💾 Salvar</strong> no cabeçalho. Um arquivo <em>.json</em> será baixado com o nome do cliente. Guarde-o na pasta correspondente. Para reabrir, clique em <strong style="color:var(--silver);">📂 Carregar</strong> e selecione o arquivo salvo — todos os dados serão restaurados.</div>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-num">6</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Gere o relatório em PDF</div>
+          <div class="guide-step-desc">No Painel Executivo, clique em <strong style="color:var(--silver);">⬇ Exportar · Imprimir PDF</strong> ou use Ctrl+P / Cmd+P no navegador. O layout foi preparado para impressão profissional.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCO 2: Campos DRE -->
+    <div class="guide-block">
+      <div class="guide-block-title">DRE · ROI de Marketing <span>o que preencher e onde buscar</span></div>
+      <table class="guide-table">
+        <thead>
+          <tr><th>Campo</th><th>O que é</th><th>Onde buscar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Receita Bruta</td><td>Faturamento total do período antes de qualquer dedução</td><td>ERP, sistema de faturamento ou relatório de NF-e emitidas</td></tr>
+          <tr><td>Impostos sobre faturamento</td><td>Tributos incidentes sobre a receita (ICMS, PIS, COFINS, ISS, Simples, etc.)</td><td>Departamento contábil ou guias de recolhimento</td></tr>
+          <tr><td>Devoluções e descontos</td><td>Cancelamentos, devoluções de mercadoria e descontos concedidos</td><td>ERP / Relatório comercial</td></tr>
+          <tr><td>Custos Variáveis Operacionais</td><td>CMV, comissões, gateway de pagamento, fretes — tudo que varia com a venda, exceto marketing</td><td>ERP / Financeiro</td></tr>
+          <tr><td>Receita Base (histórica)</td><td>Média da receita líquida dos últimos 3 a 6 meses anteriores ao período analisado</td><td>ERP — calcule a média manualmente ou extraia relatório</td></tr>
+          <tr><td>Mídia Paga</td><td>Investimento total em Google Ads, Meta Ads, TikTok Ads, etc.</td><td>Plataformas de mídia / Centro de custo de marketing</td></tr>
+          <tr><td>Produção e Conteúdo</td><td>Custos com criação: fotografia, vídeo, design, copywriting, agência criativa</td><td>Notas fiscais / Contratos com fornecedores</td></tr>
+          <tr><td>Equipe Interna proporcional</td><td>Salário + encargos da equipe de marketing rateado pelo período</td><td>Folha de pagamento / RH</td></tr>
+          <tr><td>Ferramentas</td><td>CRM, plataformas de automação, BI, agendadores, ferramentas de SEO, etc.</td><td>Financeiro / Assinaturas recorrentes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BLOCO 3: Metodologia ROI -->
+    <div class="guide-block">
+      <div class="guide-block-title">Metodologia · ROI Incremental <span>o que o número significa</span></div>
+      <div class="guide-step-desc" style="margin-bottom:0.75rem;">O ROI calculado aqui não é o ROI simples (receita ÷ custo). É o <strong style="color:var(--silver);">ROI Incremental</strong> — que isola apenas o resultado <em>gerado a mais</em> pelo marketing em relação à performance histórica do negócio.</div>
+      <div class="guide-formula">Receita Incremental = Receita Líquida Atual − Receita Base Histórica</div>
+      <div class="guide-formula">Margem Incremental = Receita Incremental × Margem de Contribuição (%)</div>
+      <div class="guide-formula">ROI = (Margem Incremental − Investimento em Marketing) ÷ Investimento em Marketing</div>
+      <div style="margin-top:1rem;">
+        <table class="guide-table">
+          <thead><tr><th>Resultado</th><th>Interpretação</th><th>Recomendação</th></tr></thead>
+          <tbody>
+            <tr><td><span class="guide-tag tag-green">ROI &gt; 100%</span></td><td>Excelente — marketing gera mais do que custa, com folga significativa</td><td>Escalar investimento com cautela, mantendo controle da margem</td></tr>
+            <tr><td><span class="guide-tag tag-silver">ROI entre 0% e 100%</span></td><td>Positivo — o investimento se paga, mas a eficiência pode melhorar</td><td>Otimizar mix de canais e reduzir custos de menor retorno</td></tr>
+            <tr><td><span class="guide-tag tag-red">ROI &lt; 0%</span></td><td>Negativo — o investimento não está sendo recuperado pela margem incremental</td><td>Revisar estratégia, canais e a receita base utilizada como referência</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="guide-step-desc" style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--silver-border);">
+        <strong style="color:var(--silver);">Atenção:</strong> ROI negativo não significa necessariamente que o marketing falhou. Pode indicar que a receita base histórica está subestimada, que o período analisado é curto (efeitos de longo prazo do marketing não aparecem imediatamente), ou que há custos extraordinários no período. Analise sempre em conjunto com o contexto do cliente.
+      </div>
+    </div>
+
+    <!-- BLOCO 4: Metodologia ROAS -->
+    <div class="guide-block">
+      <div class="guide-block-title">Metodologia · ROAS <span>retorno sobre mídia paga</span></div>
+      <div class="guide-step-desc" style="margin-bottom:0.75rem;">O ROAS (Return on Ad Spend) mede a eficiência da mídia paga de forma direta: quantos reais foram gerados para cada real investido em anúncios. Diferente do ROI, não considera margem — é um indicador de topo de funil financeiro.</div>
+      <div class="guide-formula">ROAS = Receita Atribuída ÷ Investimento em Mídia</div>
+      <div style="margin-top:1rem;">
+        <table class="guide-table">
+          <thead><tr><th>Classificação</th><th>Critério</th><th>Ação sugerida</th></tr></thead>
+          <tbody>
+            <tr><td><span class="guide-tag tag-green">Escalar</span></td><td>ROAS ≥ 1,5× o mínimo definido</td><td>Aumentar investimento progressivamente e monitorar saturação</td></tr>
+            <tr><td><span class="guide-tag tag-silver">Otimizar</span></td><td>ROAS entre o mínimo e 1,5× o mínimo</td><td>Testar criativos, públicos e segmentações para elevar performance</td></tr>
+            <tr><td><span class="guide-tag tag-red">Reduzir</span></td><td>ROAS abaixo do mínimo definido</td><td>Pausar ou redistribuir verba para canais mais eficientes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="guide-step-desc" style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--silver-border);">
+        <strong style="color:var(--silver);">Importante:</strong> Use apenas receita rastreável via UTM para o ROAS. Não misture tráfego orgânico com pago. O ROAS mínimo aceitável varia por negócio e deve ser calculado a partir da margem do produto (regra geral: ROAS mínimo = 1 ÷ margem bruta).
+      </div>
+    </div>
+
+    <!-- BLOCO 5: Gestão de arquivos -->
+    <div class="guide-block">
+      <div class="guide-block-title">Gestão de Arquivos por Cliente <span>organização recomendada</span></div>
+      <div class="guide-step">
+        <div class="guide-num">📁</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Estrutura de pastas sugerida</div>
+          <div class="guide-step-desc" style="font-family:monospace; background:var(--purple-base); padding:0.75rem 1rem; border-radius:6px; margin-top:0.4rem; line-height:2;">
+            GB_Painel_Performance.html &nbsp;← arquivo da ferramenta (único)<br>
+            📁 Clientes/<br>
+            &nbsp;&nbsp;📁 Nome_Cliente_A/<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Nome_Cliente_A_2025-01.json<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Nome_Cliente_A_2025-02.json<br>
+            &nbsp;&nbsp;📁 Nome_Cliente_B/<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Nome_Cliente_B_2025-01.json
+          </div>
+        </div>
+      </div>
+      <div class="guide-step" style="margin-top:1rem;">
+        <div class="guide-num">💡</div>
+        <div class="guide-step-body">
+          <div class="guide-step-title">Boas práticas</div>
+          <div class="guide-step-desc">O arquivo <em>.html</em> da ferramenta é único e reutilizável para todos os clientes. Os dados de cada cliente ficam no <em>.json</em> correspondente. Ao abrir um novo cliente, simplesmente não carregue nenhum arquivo — os campos estarão em branco. Para simular cenários do mesmo cliente, salve versões com nomes diferentes (ex: <em>Cliente_A_cenario_otimista.json</em>).</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <strong>Gabriela Barros</strong> · Assessoria e Gestão de Marketing · Instrumento de Diagnóstico de Performance
+</footer>
+
+<script>
+let campaigns = [];
+let state = {};
+
+const TAB_IDS = ['roi','roas','exec','guide'];
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', TAB_IDS[i] === name));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  if (name === 'exec') renderExec();
+}
+
+function updateClient() {
+  const v = document.getElementById('clientName').value || 'cliente';
+  document.getElementById('exec-subtitle').textContent = `Visão consolidada · ${v}`;
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── SAVE ──
+function saveData() {
+  const client = document.getElementById('clientName').value.trim() || 'cliente';
+  const period = document.getElementById('periodInput').value || 'sem-data';
+  const gv = id => { const el = document.getElementById(id); return el ? (el.value || '') : ''; };
+  const data = {
+    meta: { client, period, savedAt: new Date().toISOString(), version: '1.0' },
+    dre: {
+      recBruta: gv('rec-bruta'), impostos: gv('impostos'), devolucoes: gv('devolucoes'),
+      custosVar: gv('custos-var'), recBase: gv('rec-base'),
+      invMidia: gv('inv-midia'), invProd: gv('inv-prod'), invEquipe: gv('inv-equipe'), invTools: gv('inv-tools'),
+    },
+    roas: {
+      roasMin: gv('roas-min'),
+      campaigns: campaigns.map(c => ({ canal: c.canal, campanha: c.campanha, inv: c.inv, rec: c.rec })),
+    }
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `${client.replace(/\s+/g,'_')}_${period}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`✓ Salvo: ${a.download}`);
+}
+
+// ── LOAD ──
+function loadData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.meta) {
+        document.getElementById('clientName').value  = data.meta.client || '';
+        document.getElementById('periodInput').value = data.meta.period || '';
+        updateClient();
+      }
+      if (data.dre) {
+        const sv = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+        sv('rec-bruta', data.dre.recBruta); sv('impostos', data.dre.impostos);
+        sv('devolucoes', data.dre.devolucoes); sv('custos-var', data.dre.custosVar);
+        sv('rec-base', data.dre.recBase); sv('inv-midia', data.dre.invMidia);
+        sv('inv-prod', data.dre.invProd); sv('inv-equipe', data.dre.invEquipe);
+        sv('inv-tools', data.dre.invTools);
+        calcRoi();
+      }
+      if (data.roas) {
+        const rm = document.getElementById('roas-min');
+        if (rm) rm.value = data.roas.roasMin || '';
+        campaigns = [];
+        (data.roas.campaigns || []).forEach(c => {
+          campaigns.push({ id: Date.now()+Math.random(), canal: c.canal, campanha: c.campanha, inv: c.inv||0, rec: c.rec||0 });
+        });
+        renderCampaigns();
+      }
+      showToast(`✓ Carregado: ${data.meta?.client || 'cliente'} · ${data.meta?.period || ''}`);
+    } catch(err) {
+      showToast('✗ Erro ao carregar. Verifique se é um .json válido.');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function fmtBRL(v) {
+  if (v === null || v === undefined || isNaN(v)) return '—';
+  return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function set(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
+
+function calcRoi() {
+  const g = id => parseFloat(document.getElementById(id).value) || 0;
+  const recBruta=g('rec-bruta'), impostos=g('impostos'), devolucoes=g('devolucoes'),
+        custosVar=g('custos-var'), recBase=g('rec-base'),
+        invMidia=g('inv-midia'), invProd=g('inv-prod'), invEquipe=g('inv-equipe'), invTools=g('inv-tools');
+
+  const recLiq      = recBruta - impostos - devolucoes;
+  const margContrib = recLiq - custosVar;
+  const margPct     = recLiq > 0 ? (margContrib / recLiq) * 100 : 0;
+  const invTotal    = invMidia + invProd + invEquipe + invTools;
+  const recIncr     = recLiq - recBase;
+  const margIncr    = margPct > 0 ? recIncr * (margPct / 100) : 0;
+  const roi         = invTotal > 0 ? (margIncr - invTotal) / invTotal : null;
+
+  set('rec-liq',        fmtBRL(recLiq));
+  set('margem-contrib', fmtBRL(margContrib));
+  set('margem-pct',     recLiq > 0 ? margPct.toFixed(1)+'%' : '—');
+  set('inv-total',      fmtBRL(invTotal));
+  set('rec-atual',      fmtBRL(recLiq));
+  set('rec-incr',       fmtBRL(recIncr));
+  set('marg-op-pct',    recLiq > 0 ? margPct.toFixed(1)+'%' : '—');
+  set('marg-incr',      fmtBRL(margIncr));
+  set('inv-total-2',    fmtBRL(invTotal));
+
+  const roiEl = document.getElementById('roi-final');
+  const vEl   = document.getElementById('roi-verdict');
+
+  if (roi !== null && invTotal > 0) {
+    roiEl.textContent = (roi * 100).toFixed(1) + '%';
+    if (roi > 1)      { roiEl.style.color='var(--positive)'; vEl.textContent='✦ Retorno excelente — marketing gerando mais do que custa'; vEl.style.color='var(--positive)'; }
+    else if (roi > 0) { roiEl.style.color='var(--silver)';   vEl.textContent='◈ Retorno positivo — há espaço para otimização';           vEl.style.color='var(--silver-dim)'; }
+    else              { roiEl.style.color='var(--negative)';  vEl.textContent='▲ Retorno negativo — revisar estratégia e alocação';        vEl.style.color='var(--negative)'; }
+  } else {
+    roiEl.textContent='—'; roiEl.style.color='var(--silver)'; vEl.textContent='';
+  }
+
+  state = { ...state, roi, invTotal, recIncr, margPct, margContrib, recLiq };
+}
+
+function addCampaignRow(canal='', campanha='', inv=0, rec=0) {
+  campaigns.push({ id: Date.now() + Math.random(), canal, campanha, inv, rec });
+  renderCampaigns();
+}
+
+function renderCampaigns() {
+  const tbody = document.getElementById('campaign-body');
+  const min   = parseFloat(document.getElementById('roas-min').value) || 0;
+  tbody.innerHTML = '';
+
+  campaigns.forEach(c => {
+    const roas   = c.inv > 0 ? c.rec / c.inv : null;
+    const status = (min > 0 && roas !== null)
+      ? (roas >= min * 1.5 ? 'Escalar' : roas >= min ? 'Otimizar' : 'Reduzir') : null;
+    const bCls = status==='Escalar' ? 'b-esc' : status==='Otimizar' ? 'b-ot' : 'b-red';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><input class="tl" type="text" placeholder="Ex: Google Ads" value="${c.canal}" onchange="updC(${c.id},'canal',this.value)"></td>
+      <td><input class="tl" type="text" placeholder="Nome da campanha" value="${c.campanha}" onchange="updC(${c.id},'campanha',this.value)" style="width:160px;"></td>
+      <td><input type="number" placeholder="0" value="${c.inv||''}" oninput="updC(${c.id},'inv',this.value)"></td>
+      <td><input type="number" placeholder="0" value="${c.rec||''}" oninput="updC(${c.id},'rec',this.value)"></td>
+      <td style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--silver);">${roas!==null?roas.toFixed(2)+'x':'—'}</td>
+      <td>${status?`<span class="roas-badge ${bCls}">${status}</span>`:'—'}</td>
+      <td><button class="btn-del" onclick="delC(${c.id})">×</button></td>`;
+    tbody.appendChild(tr);
+  });
+  calcRoas();
+}
+
+function updC(id, field, value) {
+  const c = campaigns.find(x => x.id === id);
+  if (!c) return;
+  c[field] = (field==='inv'||field==='rec') ? (parseFloat(value)||0) : value;
+  renderCampaigns();
+}
+
+function delC(id) { campaigns = campaigns.filter(x => x.id !== id); renderCampaigns(); }
+
+function calcRoas() {
+  const invT = campaigns.reduce((s,c) => s+(c.inv||0), 0);
+  const recT = campaigns.reduce((s,c) => s+(c.rec||0), 0);
+  const roas = invT > 0 ? recT / invT : null;
+  const min  = parseFloat(document.getElementById('roas-min').value) || 0;
+
+  set('roas-inv-total',  fmtBRL(invT));
+  set('roas-rec-total',  fmtBRL(recT));
+  set('roas-geral',      roas!==null ? roas.toFixed(2)+'x' : '—');
+  set('roas-min-display',min>0 ? min.toFixed(1)+'x' : '—');
+
+  renderCanalGrid('canal-grid');
+  state = { ...state, roasGeral: roas, invMidiaRoas: invT, recAtrib: recT };
+}
+
+function renderCanalGrid(containerId) {
+  const container = document.getElementById(containerId);
+  const min = parseFloat(document.getElementById('roas-min').value) || 0;
+  const byCanal = {};
+  campaigns.forEach(c => {
+    const k = c.canal || 'Sem canal';
+    if (!byCanal[k]) byCanal[k] = { inv:0, rec:0 };
+    byCanal[k].inv += c.inv||0; byCanal[k].rec += c.rec||0;
+  });
+  const keys = Object.keys(byCanal);
+  if (!keys.length) {
+    container.innerHTML = '<div style="color:var(--text-dim);font-size:0.8rem;font-style:italic;">Adicione campanhas para ver o resumo por canal.</div>';
+    return;
+  }
+  container.innerHTML = keys.map(canal => {
+    const d = byCanal[canal];
+    const r = d.inv > 0 ? d.rec / d.inv : null;
+    const status = (min>0&&r!==null) ? (r>=min*1.5?'Escalar':r>=min?'Otimizar':'Reduzir') : null;
+    const bCls = status==='Escalar'?'b-esc':status==='Otimizar'?'b-ot':'b-red';
+    const color = r===null?'var(--text-dim)':r>=3?'var(--positive)':r>=1?'var(--silver)':'var(--negative)';
+    return `<div class="canal-card">
+      <div class="canal-name">${canal}</div>
+      <div class="canal-roas" style="color:${color}">${r!==null?r.toFixed(2)+'x':'—'}</div>
+      <div class="canal-detail">Inv: ${fmtBRL(d.inv)} &nbsp;·&nbsp; Rec: ${fmtBRL(d.rec)}</div>
+      ${status?`<span class="roas-badge ${bCls}" style="margin-top:0.5rem;display:inline-block;">${status}</span>`:''}
+    </div>`;
+  }).join('');
+}
+
+function renderExec() {
+  const s = state;
+  const client = document.getElementById('clientName').value || 'o cliente';
+  set('exec-roi',       s.roi!=null ? (s.roi*100).toFixed(1)+'%' : '—');
+  set('exec-roas',      s.roasGeral ? s.roasGeral.toFixed(2)+'x' : '—');
+  set('exec-margem',    s.margPct   ? s.margPct.toFixed(1)+'%'   : '—');
+  set('exec-inv',       fmtBRL(s.invTotal||0));
+  set('exec-rec-atrib', fmtBRL(s.recAtrib||0));
+  set('exec-rec-incr',  fmtBRL(s.recIncr||0));
+
+  const vt = document.getElementById('verdict-text');
+  const vd = document.getElementById('verdict-detail');
+  const hasData = s.invTotal > 0 || s.roasGeral > 0;
+
+  if (!hasData) { vt.textContent='Preencha os dados nas abas DRE e ROAS para gerar o diagnóstico consolidado.'; vd.textContent=''; return; }
+
+  if (s.roi!=null && s.roi>1) {
+    vt.textContent=`O investimento em marketing de ${client} está gerando retorno incremental expressivo.`;
+    vd.textContent=`Com ROI de ${(s.roi*100).toFixed(1)}% e ROAS de ${s.roasGeral?s.roasGeral.toFixed(2)+'x':'—'}, a estratégia está produzindo resultado acima do custo investido. A margem de contribuição operacional de ${s.margPct?s.margPct.toFixed(1)+'%':'—'} sustenta a escala das ações com saúde financeira.`;
+  } else if (s.roi!=null && s.roi>0) {
+    vt.textContent=`O marketing está gerando retorno positivo, com oportunidades claras de otimização.`;
+    vd.textContent=`ROI de ${(s.roi*100).toFixed(1)}% indica que o investimento se paga, mas a eficiência pode ser ampliada. Recomenda-se revisar a alocação de verba entre canais e concentrar esforços nos de maior ROAS.`;
+  } else if (s.roi!=null) {
+    vt.textContent=`O investimento em marketing ainda não está cobrindo seu custo no período analisado.`;
+    vd.textContent=`ROI negativo indica que a margem incremental gerada é insuficiente para cobrir o investimento total. É necessário revisar a estratégia, a composição de canais e a receita base histórica utilizada como referência.`;
+  } else if (s.roasGeral>0) {
+    vt.textContent=`Há retorno sobre a mídia paga — o ROI completo aguarda os dados financeiros.`;
+    vd.textContent=`ROAS consolidado de ${s.roasGeral.toFixed(2)}x. Para uma análise completa, preencha também a aba DRE com os dados financeiros do período.`;
+  }
+  renderCanalGrid('exec-canal-grid');
+}
+
+(function() {
+  const now = new Date();
+  document.getElementById('periodInput').value = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  addCampaignRow('Google Ads', 'Search · Marca', 0, 0);
+  addCampaignRow('Meta Ads',   'Feed · Conversão', 0, 0);
+  addCampaignRow('Meta Ads',   'Stories · Tráfego', 0, 0);
+})();
+</script>
+</body>
+</html>
