@@ -634,7 +634,7 @@
         <div class="metric-value" id="roas-min-display">—</div>
         <div class="metric-sub">
           <input class="field-input" type="number" id="roas-min" placeholder="ex: 3,0" min="0" step="0.1"
-            oninput="calcRoas()" style="margin-top:6px; max-width:110px; font-size:0.78rem;">
+            onchange="renderCampaigns()" oninput="calcRoas()" style="margin-top:6px; max-width:110px; font-size:0.78rem;">
         </div>
       </div>
     </div>
@@ -1017,24 +1017,47 @@ function renderCampaigns() {
       ? (roas >= min * 1.5 ? 'Escalar' : roas >= min ? 'Otimizar' : 'Reduzir') : null;
     const bCls = status==='Escalar' ? 'b-esc' : status==='Otimizar' ? 'b-ot' : 'b-red';
     const tr = document.createElement('tr');
+    tr.dataset.id = c.id;
     tr.innerHTML = `
       <td><input class="tl" type="text" placeholder="Ex: Google Ads" value="${c.canal}" onchange="updC(${c.id},'canal',this.value)"></td>
       <td><input class="tl" type="text" placeholder="Nome da campanha" value="${c.campanha}" onchange="updC(${c.id},'campanha',this.value)" style="width:160px;"></td>
-      <td><input type="number" placeholder="0" value="${c.inv||''}" oninput="updC(${c.id},'inv',this.value)"></td>
-      <td><input type="number" placeholder="0" value="${c.rec||''}" oninput="updC(${c.id},'rec',this.value)"></td>
-      <td style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--silver);">${roas!==null?roas.toFixed(2)+'x':'—'}</td>
-      <td>${status?`<span class="roas-badge ${bCls}">${status}</span>`:'—'}</td>
+      <td><input type="text" inputmode="decimal" placeholder="0,00" value="${c.inv||''}" onchange="updC(${c.id},'inv',this.value)" style="text-align:right;width:118px;"></td>
+      <td><input type="text" inputmode="decimal" placeholder="0,00" value="${c.rec||''}" onchange="updC(${c.id},'rec',this.value)" style="text-align:right;width:118px;"></td>
+      <td class="roas-cell" style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--silver);">${roas!==null?roas.toFixed(2)+'x':'—'}</td>
+      <td class="status-cell">${status?`<span class="roas-badge ${bCls}">${status}</span>`:'<span style="color:var(--text-dim);font-size:0.75rem;">Preencha ROAS mínimo</span>'}</td>
       <td><button class="btn-del" onclick="delC(${c.id})">×</button></td>`;
     tbody.appendChild(tr);
   });
   calcRoas();
 }
 
+function parseBR(val) {
+  // Aceita tanto 1.500,00 (BR) quanto 1500.00 (EN)
+  if (!val) return 0;
+  const s = String(val).trim();
+  // Se tem vírgula depois de ponto: formato BR (1.500,00)
+  if (s.includes(',')) return parseFloat(s.replace(/\./g,'').replace(',','.')) || 0;
+  return parseFloat(s) || 0;
+}
+
 function updC(id, field, value) {
   const c = campaigns.find(x => x.id === id);
   if (!c) return;
-  c[field] = (field==='inv'||field==='rec') ? (parseFloat(value)||0) : value;
-  renderCampaigns();
+  c[field] = (field==='inv'||field==='rec') ? parseBR(value) : value;
+  // Atualiza apenas ROAS e Status da linha, sem re-renderizar tudo
+  const min  = parseFloat(document.getElementById('roas-min').value) || 0;
+  const roas = c.inv > 0 ? c.rec / c.inv : null;
+  const status = (min > 0 && roas !== null)
+    ? (roas >= min * 1.5 ? 'Escalar' : roas >= min ? 'Otimizar' : 'Reduzir') : null;
+  const bCls = status==='Escalar' ? 'b-esc' : status==='Otimizar' ? 'b-ot' : 'b-red';
+  const tr = document.querySelector(`tr[data-id="${id}"]`);
+  if (tr) {
+    tr.querySelector('.roas-cell').textContent = roas !== null ? roas.toFixed(2)+'x' : '—';
+    tr.querySelector('.status-cell').innerHTML = status
+      ? `<span class="roas-badge ${bCls}">${status}</span>`
+      : '<span style="color:var(--text-dim);font-size:0.75rem;">Preencha ROAS mínimo</span>';
+  }
+  calcRoas();
 }
 
 function delC(id) { campaigns = campaigns.filter(x => x.id !== id); renderCampaigns(); }
